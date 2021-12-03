@@ -220,11 +220,12 @@ const renderLineChart = (
   isExpanded,
   expandedGraphStrokeColor,
   scale,
+  xInterval = 100,
 ) => (
   <LineChart data={data}>
     <XAxis
       dataKey="timestamp"
-      interval={100}
+      interval={xInterval}
       axisLine={false}
       tickCount={3}
       tickLine={false}
@@ -357,6 +358,8 @@ function Chart({
   infoTooltipMessage,
   expandedGraphStrokeColor,
   isPOL,
+  todayMessage = "Today",
+  xInterval,
 }) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -383,6 +386,7 @@ function Chart({
         isExpanded,
         expandedGraphStrokeColor,
         scale,
+        xInterval,
       );
     if (type === "area")
       return renderAreaChart(
@@ -497,7 +501,7 @@ function Chart({
               {headerSubText}
             </Typography>
             <Typography variant="h4" color="textSecondary" style={{ fontWeight: 400 }}>
-              {type !== "multi" && "Today"}
+              {type !== "multi" && todayMessage}
             </Typography>
           </Box>
         )}
