@@ -11,6 +11,12 @@ const TwitterFeed = () => {
     tweetWidgetEl.contentWindow.document.querySelectorAll("p").forEach(e => (e.style.lineHeight = "22px"));
     tweetWidgetEl.contentWindow.document.querySelectorAll("p").forEach(e => (e.style.fontSize = "1rem"));
     tweetWidgetEl.contentWindow.document.querySelectorAll("abbr").forEach(e => (e.style.textDecoration = "none"));
+    tweetWidgetEl.contentWindow.document
+      .querySelectorAll("span")
+      .forEach(e => (e.style.color = theme.palette.text.primary));
+    tweetWidgetEl.contentWindow.document
+      .querySelectorAll("div")
+      .forEach(e => (e.style.color = theme.palette.text.primary));
     body.style.color = theme.palette.text.primary;
     body.style.fontSize = "1rem";
     body.style.lineHeight = "22px";
@@ -33,7 +39,7 @@ const TwitterFeed = () => {
         placeholder={<Skeleton />}
         options={{ id: "twitter-widget" }}
         id="twitter-widget"
-        theme="dark"
+        theme={theme.palette.type}
         onLoad={onTwitterLoad}
         noBorders
         noFooter

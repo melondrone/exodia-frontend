@@ -25,9 +25,7 @@ import NavDrawer from "./components/Sidebar/NavDrawer.jsx";
 import Messages from "./components/Messages/Messages";
 import NotFound from "./views/404/NotFound";
 
-import { dark as darkTheme } from "./themes/dark.js";
-import { light as lightTheme } from "./themes/light.js";
-import { girth as gTheme } from "./themes/girth.js";
+import { darkGreen, darkBlue, darkRed, darkYellow, lightGreen, lightBlue, lightRed, lightYellow } from "./themes";
 import "./style.scss";
 import { Bond as IBond } from "./lib/Bond";
 import { useGoogleAnalytics } from "./hooks/useGoogleAnalytics";
@@ -74,6 +72,8 @@ const useStyles = makeStyles(theme => ({
     width: drawerWidth,
   },
 }));
+
+let themeMode;
 
 function App() {
   //useSegmentAnalytics();
@@ -188,12 +188,6 @@ function App() {
     setIsSidebarExpanded(false);
   };
 
-  let themeMode = theme === "light" ? lightTheme : theme === "dark" ? darkTheme : gTheme;
-
-  useEffect(() => {
-    themeMode = theme === "light" ? lightTheme : darkTheme;
-  }, [theme]);
-
   useEffect(() => {
     if (isSidebarExpanded) handleSidebarClose();
   }, [location]);
@@ -207,6 +201,8 @@ function App() {
 
     return () => clearInterval(interval);
   }, [chainID, provider]);
+
+  const themeMode = chooseTheme(theme);
 
   return (
     <ThemeProvider theme={themeMode}>
@@ -279,6 +275,29 @@ function App() {
 }
 
 export default App;
+
+const chooseTheme = (theme: string) => {
+  switch (theme) {
+    case "darkGreen":
+      return darkGreen;
+    case "darkBlue":
+      return darkBlue;
+    case "darkRed":
+      return darkRed;
+    case "darkYellow":
+      return darkYellow;
+    case "lightGreen":
+      return lightGreen;
+    case "lightBlue":
+      return lightBlue;
+    case "lightRed":
+      return lightRed;
+    case "lightYellow":
+      return lightYellow;
+    default:
+      return darkGreen;
+  }
+};
 
 const AppContainer = styled.div<{ backgroundColor: string }>`
   height: 100vh;

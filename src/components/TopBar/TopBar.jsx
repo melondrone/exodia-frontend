@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { ReactComponent as MenuIcon } from "../../assets/icons/hamburger.svg";
 import OhmMenu from "./OhmMenu.jsx";
-import ThemeSwitcher from "./ThemeSwitch.jsx";
+import ThemeSwitcher from "./ThemeSwitch";
 import LocaleSwitcher from "./LocaleSwitch.tsx";
 import ConnectMenu from "./ConnectMenu.jsx";
 import RebaseTimer from "../RebaseTimer/RebaseTimer";
@@ -55,9 +55,8 @@ function TopBar({ theme, toggleTheme, handleDrawerToggle }) {
 
           <ConnectMenu theme={theme} />
 
-          {/*
           <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
-          */}
+
           <LocaleSwitcher theme={theme} />
         </Box>
       </Toolbar>

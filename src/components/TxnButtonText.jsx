@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Trans } from "@lingui/macro";
 import { IPendingTx, isPendingTxn } from "../slices/PendingTxnsSlice";
+import { useTheme } from "@material-ui/core";
 
 type TxnButtonTextProps = {
   pendingTransactions: IPendingTxn[],
@@ -47,14 +48,16 @@ const SIZES: { [key: string]: string } = {
 };
 
 const LoadingSpinner = ({ size = "medium" }) => {
+  const theme = useTheme();
+
   return (
     <Container>
       <svg className="progress-ring" height={SIZES[size]} viewBox="0 0 120 120">
         <defs>
           <linearGradient id="linear" x1="0%" y1="0%" x2="0%" y2="100%" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="hsl(99, 73%, 33%)" />
-            <stop offset="50%" stop-color="hsl(100, 78%, 38%)" />
-            <stop offset="100%" stop-color="hsl(99, 73%, 33%)" />
+            <stop offset="0%" stop-color={theme.palette.primaryColor} />
+            <stop offset="50%" stop-color={theme.palette.primaryColorBright} />
+            <stop offset="100%" stop-color={theme.palette.primaryColor} />
           </linearGradient>
         </defs>
         <circle

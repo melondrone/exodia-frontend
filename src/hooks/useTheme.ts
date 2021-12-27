@@ -1,34 +1,22 @@
 import { useEffect, useState } from "react";
 
-const useTheme = (): [string, (e: KeyboardEvent) => void, boolean] => {
+const useTheme = (): [string, (theme: string) => void, boolean] => {
   const [theme, setTheme] = useState("dark");
   const [mounted, setMounted] = useState(false);
 
-  const setMode = (mode: string) => {
-    window.localStorage.setItem("theme", mode);
-    setTheme(mode);
-  };
-
-  const toggleTheme = (e: KeyboardEvent) => {
-    if (e.metaKey) {
-      setMode("girth");
-    } else {
-      if (theme === "light") {
-        setMode("dark");
-      } else {
-        setMode("light");
-      }
-    }
+  const toggleTheme = (theme: string) => {
+    window.localStorage.setItem("theme", theme);
+    setTheme(theme);
   };
 
   useEffect(() => {
-    /*    const localTheme = window.localStorage.getItem("theme");
-    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches && !localTheme
-      ? setMode("dark")
-      : localTheme
-      ? setTheme(localTheme)
-      : setMode("light");*/
-    setMode("dark");
+    let localTheme = window.localStorage.getItem("theme");
+    if (localTheme === "dark") {
+      setTheme("darkGreen");
+      window.localStorage.setItem("theme", "darkGreen");
+    } else {
+      setTheme(localTheme || "darkGreen");
+    }
     setMounted(true);
   }, []);
 

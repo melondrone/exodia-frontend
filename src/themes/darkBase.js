@@ -1,0 +1,25 @@
+import navBg from "../assets/images/exod-sidebar.jpg";
+
+export default {
+  color: "#FCFCFC",
+  gray: "#A3A3A3",
+  backgroundColor: "#131313",
+  paperBg: "#1F1F1F",
+  paperBorder: "#323232",
+  inputBorder: "#323232",
+  modalBg: "#24242699",
+  popoverBg: "rgba(54, 56, 64, 0.99)",
+  menuBg: "#080c00",
+  backdropBg: "rgba(3, 10, 0, 0.5)",
+  largeTextColor: "#F4D092",
+  primaryButtonColor: "#f9f9f9",
+  primaryButtonBG: "#F4D092",
+  secondaryButtonHoverBG: "rgba(54, 56, 64, 1)",
+  outlinedPrimaryButtonHoverColor: "#333333",
+  outlinedSecondaryButtonHoverBG: "transparent",
+  containedSecondaryButtonHoverBG: "rgba(255, 255, 255, 0.15)",
+  graphStrokeColor: "rgba(255, 255, 255, .1)",
+  sidebarBackground: `linear-gradient(0deg, rgba(31,31,31,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%), url(${navBg})`,
+  trendUp: "#43e055",
+  trendDown: "#ed3939",
+};

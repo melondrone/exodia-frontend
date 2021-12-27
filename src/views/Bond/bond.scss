@@ -3,6 +3,7 @@
   width: 100%;
   height: 100%;
   z-index: 69;
+  padding-top: 15px;
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     .MuiBackdrop-root {
@@ -34,7 +35,7 @@
       opacity: 0.9;
     }
   }
-  
+
   .ohm-card {
     max-width: 803px;
   }
@@ -122,4 +123,6 @@
   }
 }
 
-.web3modal-modal-lightbox { z-index: 70 !important; }
+.web3modal-modal-lightbox {
+  z-index: 70 !important;
+}

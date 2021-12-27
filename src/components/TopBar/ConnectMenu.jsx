@@ -36,7 +36,6 @@ function ConnectMenu({ theme }) {
   const open = Boolean(anchorEl);
   const id = open ? "ohm-popper-pending" : undefined;
 
-  const primaryColor = theme === "light" ? "#49A1F2" : "#F8CC82";
   const buttonStyles =
     "pending-txn-container" + (isHovering && pendingTransactions.length > 0 ? " hovered-button" : "");
 
@@ -67,7 +66,6 @@ function ConnectMenu({ theme }) {
         variant="contained"
         color="primary"
         size="large"
-        style={pendingTransactions.length > 0 ? { color: primaryColor } : {}}
         onClick={clickFunc}
         onMouseOver={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
@@ -76,7 +74,7 @@ function ConnectMenu({ theme }) {
         {buttonText}
         {pendingTransactions.length > 0 && (
           <Slide direction="left" in={isHovering} {...{ timeout: 333 }}>
-            <SvgIcon className="caret-down" component={CaretDownIcon} htmlColor={primaryColor} />
+            <SvgIcon className="caret-down" component={CaretDownIcon} />
           </Slide>
         )}
       </Button>
