@@ -5,14 +5,14 @@ import makeMuiTheme from "./makeMuiTheme";
 
 export const theme = {
   ...darkBase,
-  gold: "#bf2a2a", // Light green
-  goldDimmed: "#941f1f",
-  goldBright: "#d42f2f",
-  textHighlightColor: "#d42f2f",
-  primaryButtonHoverBG: "#941f1f", //gold became dark green
-  outlinedPrimaryButtonHoverBG: "#941f1f", //gold became dark green
-  outlinedSecondaryButtonHoverColor: "#941f1f", //gold became dark green
-  chartColors: ["#bf2a2a", "#c7b34e", "#6a83f7"],
+  gold: "#cc2b40", // Light green
+  goldDimmed: "#962f3d",
+  goldBright: "#f54e65",
+  textHighlightColor: "#f54e65",
+  primaryButtonHoverBG: "#962f3d", //gold became dark green
+  outlinedPrimaryButtonHoverBG: "#962f3d", //gold became dark green
+  outlinedSecondaryButtonHoverColor: "#962f3d", //gold became dark green
+  chartColors: ["#cc2b40", "#c7b34e", "#51b6b8"],
   mainBackground:
     "linear-gradient(180deg, rgba(25, 25, 25, 0), rgba(30, 30, 30, 0.9)), " +
     "linear-gradient(333deg, rgba(2, 2, 2, 0.2), rgba(13, 15, 17, 0.08)), " +

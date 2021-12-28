@@ -15,7 +15,7 @@ export default {
   primaryButtonColor: "#f9f9f9",
   primaryButtonBG: "#F4D092",
   secondaryButtonHoverBG: "rgba(54, 56, 64, 1)",
-  outlinedPrimaryButtonHoverColor: "#333333",
+  outlinedPrimaryButtonHoverColor: "#FCFCFC",
   outlinedSecondaryButtonHoverBG: "transparent",
   containedSecondaryButtonHoverBG: "rgba(255, 255, 255, 0.15)",
   graphStrokeColor: "rgba(255, 255, 255, .1)",
