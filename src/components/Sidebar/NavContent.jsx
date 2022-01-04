@@ -7,25 +7,43 @@ import { ReactComponent as BondIcon } from "../../assets/icons/bond.svg";
 import { ReactComponent as DashboardIcon } from "../../assets/icons/dashboard.svg";
 import { ReactComponent as WrapIcon } from "../../assets/icons/wrap.svg";
 import { ReactComponent as OlympusIcon } from "../../assets/icons/olympus-nav-header.svg";
-import ExodiaLogo from "../../assets/images/logo-wide.png";
 import { ReactComponent as PoolTogetherIcon } from "../../assets/icons/33-together.svg";
 import { Trans } from "@lingui/macro";
 import { trim, shorten } from "../../helpers";
 import { useAddress, useWeb3Context } from "src/hooks/web3Context";
 import useBonds from "../../hooks/Bonds";
-import { Paper, Link, Box, Typography, SvgIcon } from "@material-ui/core";
+import { Paper, Link, Box, Typography, SvgIcon, useTheme } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 import ShowChartIcon from "@material-ui/icons/ShowChart";
 import StarIcon from "@material-ui/icons/Stars";
 import HomeIcon from "@material-ui/icons/Home";
 import Tooltip from "@material-ui/core/Tooltip";
+import styled from "styled-components";
 import "./sidebar.scss";
+
+import ExodiaLogoGreen from "../../assets/images/logo-wide.png";
+import ExodiaLogoYellow from "../../assets/images/exodia-logo-wide-yellow.png";
+import ExodiaLogoBlue from "../../assets/images/exodia-logo-wide-blue.png";
+import ExodiaLogoRedDark from "../../assets/images/exodia-logo-wide-red-dark.png";
+import ExodiaLogoRedLight from "../../assets/images/exodia-logo-wide-red-light.png";
+
+const LOGO_MAP = {
+  darkGreen: ExodiaLogoGreen,
+  darkRed: ExodiaLogoRedDark,
+  darkBlue: ExodiaLogoBlue,
+  darkYellow: ExodiaLogoYellow,
+  lightGreen: ExodiaLogoGreen,
+  lightRed: ExodiaLogoRedLight,
+  lightBlue: ExodiaLogoBlue,
+  lightYellow: ExodiaLogoYellow,
+};
 
 function NavContent() {
   const [isActive] = useState();
   const address = useAddress();
   const { chainID } = useWeb3Context();
   const { bonds } = useBonds(chainID);
+  const theme = useTheme();
 
   const checkPage = useCallback((match, location, page) => {
     const currentPath = location.pathname.replace("/", "");
@@ -50,14 +68,20 @@ function NavContent() {
     return false;
   }, []);
 
+  console.log(theme.palette.themeName);
+
   return (
     <Paper className="dapp-sidebar">
       <Box className="dapp-sidebar-inner" display="flex" justifyContent="space-between" flexDirection="column">
         <div className="dapp-menu-top">
           <Box className="branding-header">
-            <Link href="https://exodia.fi" target="_blank">
-              <img src={ExodiaLogo} alt={"Exodia logo"} />
-            </Link>
+            <ImageLink
+              href="https://exodia.fi"
+              target="_blank"
+              isDefault={["darkGreen", "lightGreen"].includes(theme.palette.themeName)}
+            >
+              <img src={LOGO_MAP[theme.palette.themeName]} alt={"Exodia logo"} />
+            </ImageLink>
 
             {address && (
               <div className="wallet-link">
@@ -217,3 +241,9 @@ function NavContent() {
 }
 
 export default NavContent;
+
+const ImageLink = styled(Link)`
+  img {
+    ${({ isDefault }) => !isDefault && "margin-left: -14px; margin-top: -2px;"}
+  }
+`;

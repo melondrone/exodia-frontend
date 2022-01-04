@@ -1,12 +1,13 @@
 import fonts from "./fonts";
 
-export default (theme, type) => {
+export default (theme, type, themeName) => {
   return {
     primary: {
       main: theme.color,
     },
     palette: {
       type: type,
+      themeName: themeName,
       background: {
         default: theme.backgroundColor,
         paper: theme.paperBg,

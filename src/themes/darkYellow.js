@@ -24,4 +24,4 @@ export const theme = {
     "radial-gradient(circle at 11% 100%, rgba(6, 6, 6, 0.3), rgba(6, 6, 6, 0) 30%)",
 };
 
-export const darkYellow = responsiveFontSizes(createTheme(makeMuiTheme(theme, "dark"), commonSettings));
+export const darkYellow = responsiveFontSizes(createTheme(makeMuiTheme(theme, "dark", "darkYellow"), commonSettings));
